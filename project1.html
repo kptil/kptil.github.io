@@ -49,11 +49,104 @@
     <!-- Main -->
     <div id="main">
         <div class="inner">
-            <h1>Project 1</h1>
-            <span class="image main"><img src="images/project1page.jpg" alt="" /></span>
-            <p>This is a test - Updating through Git. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-            <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+            <h1>Blackjack</h1>
+            <span class="image main"><img src="images/blackjackpage.jpg" alt="" /></span>
+            <p>This project implements a simplified version of the game blackjack in Java. The program defines methods to calculate the player's hand and create printouts, then uses a while loop and a do-while loop to initiate and run the game. A card is dealt to the player automatically. The player then chooses to get another card or hold his/her hand. If the player chooses to get another card, another card is dealt and added to the player's hand. If the player's hand equals 21, the player wins. If the player's hand exceeds 21, the player loses. If neither is true, play continues. If the user chooses to hold his/her hand, the dealer is dealt the equivalent of two cards at once. The dealer's hand is then evaluated to see if it equals or exceeds 21. If neither is true, both hands are below 21, and the highest hand wins.</p>
+            <p>For the full program with comments, please view the <a href="https://github.com/kptil/blackjack">Github Repository</a>.</p>
+            <pre><code>
+P1Random rng = new P1Random();
+Scanner scnr = new Scanner(System.in);
+while (playerInput != 4) {
+    playerHand = 0;
+    gameNumber++;
+    System.out.println("START GAME #" + gameNumber);
+    System.out.println();
+
+    playerCard = rng.nextInt(13) + 1;
+    printCard(playerCard);
+
+    playerHand = calculateHand(playerCard, playerHand);
+    System.out.println("Your hand is: " + playerHand);
+    System.out.println();
+
+    do {
+        printMenu();
+        playerInput = scnr.nextInt();
+        System.out.println();
+
+        if (playerInput == 1) {
+            playerCard = rng.nextInt(13) + 1;
+            printCard(playerCard);
+            playerHand = calculateHand(playerCard, playerHand);
+            System.out.println("Your hand is: " + playerHand);
+            System.out.println();
+
+            if (playerHand > 21) {
+                System.out.println("You exceeded 21! You lose.");
+                System.out.println();
+                numDealerWins++;
+                break;
+            }
+            if (playerHand == 21) {
+                System.out.println("BLACKJACK! You win!");
+                System.out.println();
+                numPlayerWins++;
+                break;
+            }
+        }
+
+        else if (playerInput == 2) {
+            dealerCard = rng.nextInt(11) + 16;
+            System.out.println("Dealer's hand: " + dealerCard);
+            System.out.println("Your hand is: " + playerHand);
+            System.out.println();
+
+            if ((dealerCard == 21)) {
+                System.out.println("Dealer wins!");
+                System.out.println();
+                numDealerWins++;
+            }
+            else if (dealerCard > 21) {
+                System.out.println("You win!");
+                System.out.println();
+                numPlayerWins++;
+            }
+
+            else {
+                if (dealerCard > playerHand) {
+                    System.out.println("Dealer wins!");
+                    System.out.println();
+                    numDealerWins++;
+                }
+                else if (dealerCard < playerHand) {
+                    System.out.println("You win!");
+                    System.out.println();
+                    numPlayerWins++;
+                }
+                else {
+                    System.out.println("It's a tie! No one wins!");
+                    System.out.println();
+                    numTieGames++;
+                }
+            }
+        }
+
+        else if (playerInput == 3) {
+            printStatistics(numPlayerWins, numDealerWins, numTieGames);
+        }
+
+        else if (playerInput == 4) {
+            break;
+        }
+
+        else {
+            System.out.println("Invalid input!");
+            System.out.println("Please enter an integer value between 1 and 4.");
+            System.out.println();
+        }
+    } while ((playerInput != 2));
+</code></pre>
+
         </div>
     </div>
 
