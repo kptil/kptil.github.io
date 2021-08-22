@@ -40,9 +40,8 @@
         <h2>Menu</h2>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="contact.html">Contact Info</a></li>
             <li><a href="resume.html">About Me</a></li>
-            <li><a href="elements.html">Elements</a></li>
+            <li><a href="contact.html">Contact Info</a></li>
         </ul>
     </nav>
 
@@ -51,102 +50,17 @@
         <div class="inner">
             <h1>Blackjack</h1>
             <span class="image main"><img src="images/blackjackpage.jpg" alt="" /></span>
-            <p>This project implements a simplified version of the game blackjack in Java. The program defines methods to calculate the player's hand and create printouts, then uses a while loop and a do-while loop to initiate and run the game. A card is dealt to the player automatically. The player then chooses to get another card or hold his/her hand. If the player chooses to get another card, another card is dealt and added to the player's hand. If the player's hand equals 21, the player wins. If the player's hand exceeds 21, the player loses. If neither is true, play continues. If the user chooses to hold his/her hand, the dealer is dealt the equivalent of two cards at once. The dealer's hand is then evaluated to see if it equals or exceeds 21. If neither is true, both hands are below 21, and the highest hand wins.</p>
+            <p>This project implements a simplified version of the game blackjack in Java. The program defines methods
+                to calculate the player's hand and create printouts, then uses a while loop and a do-while loop to
+                initiate and run the game until the player exits. The gameplay proceeds as follows: A card is dealt to
+                the player automatically. The player then chooses to get
+                another card or hold his/her hand. If the player chooses to get another card, another card is dealt and
+                added to the player's hand. If the player's hand equals 21, the player wins. If the player's hand
+                exceeds 21, the player loses. If neither is true, play continues. If the user chooses to hold his/her
+                hand, the dealer is dealt the equivalent of two cards at once. The dealer's hand is then evaluated to
+                see if it equals or exceeds 21. If neither is true, both hands are below 21, and the highest hand wins.
+            </p>
             <p>For the full program with comments, please view the <a href="https://github.com/kptil/blackjack">Github Repository</a>.</p>
-            <pre><code>
-P1Random rng = new P1Random();
-Scanner scnr = new Scanner(System.in);
-while (playerInput != 4) {
-    playerHand = 0;
-    gameNumber++;
-    System.out.println("START GAME #" + gameNumber);
-    System.out.println();
-
-    playerCard = rng.nextInt(13) + 1;
-    printCard(playerCard);
-
-    playerHand = calculateHand(playerCard, playerHand);
-    System.out.println("Your hand is: " + playerHand);
-    System.out.println();
-
-    do {
-        printMenu();
-        playerInput = scnr.nextInt();
-        System.out.println();
-
-        if (playerInput == 1) {
-            playerCard = rng.nextInt(13) + 1;
-            printCard(playerCard);
-            playerHand = calculateHand(playerCard, playerHand);
-            System.out.println("Your hand is: " + playerHand);
-            System.out.println();
-
-            if (playerHand > 21) {
-                System.out.println("You exceeded 21! You lose.");
-                System.out.println();
-                numDealerWins++;
-                break;
-            }
-            if (playerHand == 21) {
-                System.out.println("BLACKJACK! You win!");
-                System.out.println();
-                numPlayerWins++;
-                break;
-            }
-        }
-
-        else if (playerInput == 2) {
-            dealerCard = rng.nextInt(11) + 16;
-            System.out.println("Dealer's hand: " + dealerCard);
-            System.out.println("Your hand is: " + playerHand);
-            System.out.println();
-
-            if ((dealerCard == 21)) {
-                System.out.println("Dealer wins!");
-                System.out.println();
-                numDealerWins++;
-            }
-            else if (dealerCard > 21) {
-                System.out.println("You win!");
-                System.out.println();
-                numPlayerWins++;
-            }
-
-            else {
-                if (dealerCard > playerHand) {
-                    System.out.println("Dealer wins!");
-                    System.out.println();
-                    numDealerWins++;
-                }
-                else if (dealerCard < playerHand) {
-                    System.out.println("You win!");
-                    System.out.println();
-                    numPlayerWins++;
-                }
-                else {
-                    System.out.println("It's a tie! No one wins!");
-                    System.out.println();
-                    numTieGames++;
-                }
-            }
-        }
-
-        else if (playerInput == 3) {
-            printStatistics(numPlayerWins, numDealerWins, numTieGames);
-        }
-
-        else if (playerInput == 4) {
-            break;
-        }
-
-        else {
-            System.out.println("Invalid input!");
-            System.out.println("Please enter an integer value between 1 and 4.");
-            System.out.println();
-        }
-    } while ((playerInput != 2));
-</code></pre>
-
         </div>
     </div>
 
@@ -185,6 +99,7 @@ while (playerInput != 4) {
                     <!-- <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li> -->
                     <li><a href="https://www.linkedin.com/in/kathleen-tiley-0640b217b" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
                 </ul>
+                <p><b>Email:</b> kpt12@georgetown.edu | ktiley@ufl.edu<br><b>Phone:</b> +1 717-422-7636</p>
             </section>
             <ul class="copyright">
                 <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
