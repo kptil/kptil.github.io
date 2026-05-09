@@ -49,19 +49,25 @@
     <div id="main">
         <div class="inner">
             <h1>Autofocus</h1>
-            <span class="image main"><img src="images/avltree.jpg" alt="" /></span>
+            <span class="image main"><img src="images/flowerCombined.png" alt="" /></span>
             <p> This project replicates the autofocus feature of a digital camera. It takes in a series of photos of the scene
                 taken from varying lens positions, essentially a short video, and identifies the frame of the video with the 
                 sharpest focus. I implemented two different measures of focus that work similarly. Both take the sum of the 
                 absolute value of the image after convolution with the Laplacian sharpening kernel; however, in the Sum Modified
                 Laplacian method, the convolution is applied in the x and y directions separately.
             </p>
-            
-            <!-- Need to change size, maybe color scheme? -->
             <article class="special">
                 <embed type="text/x-c++src" src="code-files/autofocus.cpp" width="900" height="400"/>
+            </article>          
+            <br>
+            <p>
+                The program prints the id number of the frame in which the flower has the sharpest focus as found by both methods,
+                and outputs an image with both frames combined, as shown below.
+            </p>
+            <article class="special">
+                <img src="images/autofocus-run-output.png" width="981" height="218">
+                <img src="images/autofocus-im-out.png" width="1280" height="360">
             </article>
-                        
             <br>
             <p>You can download a copy of the code <a href="code-files/autofocus.cpp" download="autofocus.cpp"> here.</a></p>
 
