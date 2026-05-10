@@ -48,55 +48,24 @@
     <!-- Main -->
     <div id="main">
         <div class="inner">
-            <header>
-                <h1>OpenCV Projects</h1>
-            </header>
-            <section class="tiles">
-                <article class="style2">
-                    <span class="image">
-                        <img src="images/flower.png" alt="" />
-                    </span>
-                    <a href="autofocus.html">
-                        <h2>Autofocus Implementation</h2>
-                        <div class="content">
-                            <p></p>
-                        </div>
-                    </a>
-                </article>
-                <article class="style3">
-                    <span class="image">
-                        <img src="images/cartoonImage.jpg" alt="" />
-                    </span>
-                    <a href="ComingSoon.html">
-                        <h2>Image Filters</h2>
-                        <div class="content">
-                            <p></p>
-                        </div>
-                    </a>
-                </article>
-                <article class="style1">
-                    <span class="image">
-                        <img src="images/blemish.png" alt="" />
-                    </span>
-                    <a href="blemishremoval.html">
-                        <h2>Blemish Removal</h2>
-                        <div class="content">
-                            <p></p>
-                        </div>
-                    </a>
-                </article>
-                <article class="style4">
-                    <span class="image">
-                        <img src="images/asteroid.png" alt="" />
-                    </span>
-                    <a href="ComingSoon.html">
-                        <h2>Chroma Keying</h2>
-                        <div class="content">
-                            <p></p>
-                        </div>
-                    </a>
-                </article>
-            </section>
+            <h1>Interactive Blemish Removal</h1>
+            <span class="image main"><img src="images/blemishoutput.png" alt="" /></span>
+            <p> This program reads in an image and allows the user to select blemish spots on the image to be removed. When a spot
+                is selected, the algorithm compares a patch centered at the mouse press point to the 8 patches encircling the 
+                orignal patch. It assesses the smoothness of each patch by finding the gradients of the image in the x and y 
+                directions and taking the mean of both gradients. The smoothest patch is selected to replace the blemish patch,
+                and the patches are combined with seamless cloning.
+            </p>
+            <br>
+            <!-- Get these side by side, and fix video crop -->
+            <article class="special">
+                <video controls width="450">
+                    <source src="images/blemishremoval.mp4" />
+                </video>
+                <embed type="text/x-c++src" src="code-files/blemishremoval.cpp" width="900" height="400"/>
+            </article>          
+            <br>
+            <p>You can download a copy of the code <a href="code-files/blemishremoval.cpp" download="blemishremoval.cpp"> here.</a></p>
 
         </div>
     </div>
@@ -136,7 +105,7 @@
                     <!-- <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li> -->
                     <li><a href="https://www.linkedin.com/in/kathleen-tiley-0640b217b" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
                 </ul>
-                <p><b>Email:</b> kpt12@georgetown.edu<br><b>Phone (WhatsApp only):</b> +1 717 422 7636</p>
+                <p><b>Email:</b> kpt12@georgetown.edu<br><b>Phone (WhatsApp only):</b> +1 717-422-7636</p>
             </section>
             <ul class="copyright">
                 <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
